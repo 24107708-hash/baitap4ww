@@ -1,0 +1,156 @@
+
+/* Base styles: Mobile-first */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f5f9;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+header {
+  padding: 1.5rem 1rem;
+  background-color: #17324d;
+  color: #ffffff;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+main {
+  padding: 1rem;
+}
+
+main p {
+  margin: 0 0 1rem;
+}
+
+/* Mobile: one-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  border: 3px solid #273746;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #1f2937;
+  text-align: center;
+}
+
+.grid img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #17324d;
+  text-align: center;
+}
+
+footer a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible {
+  outline: 3px solid #d97706;
+  outline-offset: 4px;
+}
+
+/* Tablet: starts at 772px */
+@media (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid img {
+    border-radius: 50%;
+  }
+
+  .grid figure:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Large screen: starts at 992px */
+@media (min-width: 992px) {
+  .grid figure:nth-child(3n) {
+    grid-column: 1 / -1;
+  }
+
+  .grid img {
+    border-radius: 0;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark color scheme */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111827;
+    color: #f3f4f6;
+  }
+
+  header,
+  footer {
+    background-color: #080b10;
+    color: #f9fafb;
+  }
+
+  .grid figure {
+    border-color: #000000;
+    background-color: #252b33;
+    color: #ffec99;
+  }
+
+  footer a {
+    color: #ffec99;
+  }
+}
